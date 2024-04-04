@@ -26,9 +26,9 @@ class Asset(models.Model):
     dep_period = fields.Integer()
     location_id = fields.Many2one("res.company")
     category_id = fields.Many2one("product.category")
-    custody_id = fields.Many2one("hr.employee")
-    #status = fields.Many2one("status")
-    #current_request = fields.Many2many("request")
+    custody_id = fields.Many2one("hr.employee", string="Custody")
+    status = fields.Many2one("status")
+    current_request = fields.Many2many("request")
     sell_price = fields.Float()
     state = fields.Selection([
         ('draft', 'Draft'),
