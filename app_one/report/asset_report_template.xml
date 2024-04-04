@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_asset">
+           <t t-call="web.html_container">
+               <t t-foreach="docs" t-as="o">
+                   <t t-call="web.external_layout">
+                       <div class="page">
+                           <img t-att-src="'/report/barcode/QR/%s' % (o.asset_qr_code)"
+                                style="width:300px;height:50px"/>
+                       </div>
+                   </t>
+               </t>
+           </t>
+        </template>
+
+
+
+    </data>
+</odoo>

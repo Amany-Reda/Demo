@@ -1,0 +1,77 @@
+<odoo>
+    <record id = "asset_loan_view_search" model = "ir.ui.view">
+        <field name="name">asset loan</field>
+        <field name="model">asset.loan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="custody"/>
+<!--                <field name="category"/>-->
+            </search>
+        </field>
+    </record>
+    <record id="asset_loan_view_form" model="ir.ui.view">
+        <field name="name">asset loan form</field>
+        <field name="model">asset.loan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <button name="action_pending" type="object" class="btn-secondary" string="Pending"
+                                invisible="state == 'pending'">Reset To Pending</button>
+
+                        <button name="action_accept" type="object" class="btn-success" string="Accepted"
+                                invisible="state != 'pending'">Accept</button>
+                        <button name="action_reject" type="object" class="btn-success" string="Rejected"
+                                invisible="state != 'pending'">Reject</button>
+
+                        <button name="action_running" type="object" class="btn-success" string="Running"
+                                invisible="state != 'accepted'">Start Loan</button>
+                        <button name="action_return" type="object" class="btn-success" string="Returned"
+                                invisible="state != 'running'">Return</button>
+                        <button name="action_asset" type="object" class="btn-success" string="Go To Asset">Go To Asset</button>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <group>
+                            <field name="asset_id" widget="many2many_tags" />
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="location_id"/>
+                            <field name="custody" />
+                    </group>
+
+                    <group>
+                            <field name="loan_accepted" readonly="1"/>
+                            <field name="loan_started" readonly="1"/>
+                            <field name="loan_returned" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="asset_loan_view_tree" model="ir.ui.view">
+        <field name="name">asset loan tree</field>
+        <field name="model">asset.loan</field>
+        <field name="arch" type="xml">
+            <tree class="custom_table">
+                <field name="asset_id" widget="many2many_tags"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="location_id"/>
+                <field name="custody" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+    <record id="asset_loan_action" model="ir.actions.act_window">
+        <field name="name">Asset Loan</field>
+        <field name="res_model">asset.loan</field>
+    </record>
+
+    <menuitem
+        id="asset_loan_menu_item"
+        name="Asset Loan"
+        parent="configuration_menu"
+        action="asset_loan_action"
+    />
+</odoo>

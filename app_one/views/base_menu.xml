@@ -1,0 +1,30 @@
+<odoo>
+    <menuitem
+        id="real_estate_root_menu"
+        name="Assets Management"
+        web_icon="app_one, static/description/icon.png"
+    />
+    <menuitem
+        id="assets_menu"
+        name="Assets"
+        parent="real_estate_root_menu"
+    />
+    <menuitem
+        id="properties_menu"
+        name="Properties"
+        parent="real_estate_root_menu"
+    />
+
+
+     <menuitem
+        id="configuration_menu"
+        name="Assets"
+        parent="real_estate_root_menu"
+    />
+
+     <menuitem
+        id="order_menu"
+        name="Orders"
+        parent="real_estate_root_menu"
+    />
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_property,access_property,model_property,,1,1,1,1
+access_owner,access_owner,model_owner,,1,1,1,1
+access_tag,access_tag,model_tag,,1,1,1,1
+access_asset,access_asset,model_asset,,1,1,1,1
+access_category_group,access_category_group,model_category_group,,1,1,1,1
+access_make_order,access_make_order,model_make_order,,1,1,1,1
+access_asset_loan,access_asset_loan,model_asset_loan,,1,1,1,1

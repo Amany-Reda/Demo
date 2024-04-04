@@ -1,0 +1,69 @@
+<odoo>
+    <record id = "make_order_view_search" model = "ir.ui.view">
+        <field name="name">make order search</field>
+        <field name="model">make.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="category_group_ids"/>
+            </search>
+        </field>
+    </record>
+    <record id="make_order_view_form" model="ir.ui.view">
+        <field name="name">make order form</field>
+        <field name="model">make.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+
+                    <div class="oe_title">
+                        <label for="category_group_ids"/>
+                        <h1>
+                            <field name="category_group_ids"/>
+                        </h1>
+                        <label for="custody_id"/>
+                        <h1>
+                            <field name="custody_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Date.">
+                            <field name="order_date"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group string="Other">
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="make_order_view_tree" model="ir.ui.view">
+        <field name="name">make order tree</field>
+        <field name="model">make.order</field>
+        <field name="arch" type="xml">
+            <tree class="custom_table">
+                <field name="category_group_ids"/>
+                <field name="custody_id"/>
+                <field name="status"/>
+                <field name="tag_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="make_order_action" model="ir.actions.act_window">
+        <field name="name">Make Order</field>
+        <field name="res_model">make.order</field>
+    </record>
+
+    <menuitem
+        id="make_order_menu_item"
+        name="Make Order"
+        parent="order_menu"
+        action="make_order_action"
+    />
+</odoo>

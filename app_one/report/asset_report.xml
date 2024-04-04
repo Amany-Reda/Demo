@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--  QWeb Reports  -->
+        <record id="report_invoices" model="ir.actions.report">
+            <field name="name">Qr Asset</field>
+            <field name="model">asset</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">app_one.report_asset</field>
+            <field name="report_file">app_one.report_asset</field>
+            <field name="binding_model_id" ref="model_asset"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
